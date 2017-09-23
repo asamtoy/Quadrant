@@ -6,26 +6,26 @@ import android.os.Bundle;
 public class ToDo extends AppCompatActivity {
 
     private String toDo;
-    private int rank;
+    private boolean urgent;
+    private boolean important;
 
-    public ToDo(String toDo, int rank){
+    public ToDo(String toDo, boolean important, boolean urgent){
         this.toDo = toDo;
-        this.rank = rank;
+        this.important = important;
+        this.urgent = urgent;
     }
 
-    public int getRank() {
-        return rank;
+    public boolean isUrgent() {
+        return urgent;
+    }
+
+    public boolean isImportant() {
+        return important;
     }
 
     public String getToDo() {
         return toDo;
     }
-
-//    public void save(){
-//        int rank = rank.getRank();
-//
-//
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

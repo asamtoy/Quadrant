@@ -14,13 +14,18 @@ public class ToDoTest {
 
     @Before
     public void before(){
-        toDo = new ToDo("Drink water", 2);
+        toDo = new ToDo("Drink water", false, false);
     }
 
 
     @Test
-    public void testToDoRank(){
-    assertEquals(2, toDo.getRank());
+    public void testImportant(){
+    assertEquals(false, toDo.isImportant());
+    }
+
+    @Test
+    public void testIsUrgent(){
+        assertEquals(false, toDo.isUrgent());
     }
 
     @Test

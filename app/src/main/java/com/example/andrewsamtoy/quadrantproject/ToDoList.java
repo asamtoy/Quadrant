@@ -13,17 +13,17 @@ public class ToDoList implements Serializable {
     public ToDoList(){
         toDoList = new ArrayList<ToDo>();
     }
-
-    public ToDoList(ArrayList<ToDo> presetToDoList) {
-        toDoList = new ArrayList<>(presetToDoList);
-    }
-
+    
     public void add(ToDo toDo){
         toDoList.add(toDo);
     }
 
-    public void remove(ToDo toDo){
-        toDoList.remove(toDo);
+    public void remove(int index){
+        toDoList.remove(index);
+    }
+
+    public void clearToDos(){
+        toDoList.clear();
     }
 
     public int getLength() {
@@ -31,20 +31,17 @@ public class ToDoList implements Serializable {
         return toDoList.size();
     }
 
-    public ToDo returnByIndex(){
-        toDoList.get();
+    public ToDo get(int index){
+        return this.toDoList.get(index);
     }
-//    public ArrayList<ToDo> getList(){
-//        return new ArrayList<ToDo>(toDoList);}
 
-    //    public void setUpToDoList() {
-//        ToDo[] toDosToAdd = {
-//                "Make pizza dough",
-//                "Grind coffee"
-//        };
-//        for (ToDo toDo : toDosToAdd) {
-//            this.toDoList.add(toDo);
-//        }
+//    public ToDo modify(){
+//        toDoList.get(int index);
+//        toDoList.set(int index, toDo);
+
+//        Retrieve both string and rank
+//        Allow to
+//        Save
 //    }
 
 }

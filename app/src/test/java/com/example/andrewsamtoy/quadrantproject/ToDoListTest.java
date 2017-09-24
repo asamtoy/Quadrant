@@ -16,12 +16,16 @@ public class ToDoListTest {
     ToDoList toDoList;
     ToDo toDo1;
     ToDo toDo2;
+    ToDo toDo3;
+    ToDo toDo4;
+    ToDo toDo5;
 
     @Before
     public void before(){
         toDoList = new ToDoList();
         toDo1 = new ToDo("Planning", true, true);
         toDo2 = new ToDo("Make pizza", false, false);
+        toDo3 = new ToDo("Set pomodoro timer", false, true);
         toDoList.add(toDo1);
         toDoList.add(toDo2);
     }
@@ -54,4 +58,30 @@ public class ToDoListTest {
         toDoList.remove(0);
         assertEquals(1, toDoList.getLength());
     }
+
+    @Test
+    public void canCreateCustomToDoList() {
+        ArrayList<ToDo> customToDoList = new ArrayList<>();
+        toDo1 = new ToDo("PLANNING", true, true);
+        toDo2 = new ToDo("Hydrate", true, true);
+        toDo3 = new ToDo("Cook soup", true, false);
+        toDo4 = new ToDo("vacuum", true, false);
+        toDo5 = new ToDo("Feed sourdough starter", true, false);
+
+        customToDoList.add(toDo1);
+        customToDoList.add(toDo2);
+        customToDoList.add(toDo3);
+        customToDoList.add(toDo4);
+        customToDoList.add(toDo5);
+        ToDoList toDoListWithNewAnswers = new ToDoList(customToDoList);
+
+        assertEquals(5, toDoListWithNewAnswers.getLength());
+        assertEquals("Cook soup", toDo3.getToDo());
+        assertEquals("vacuum", toDo4.getToDo());
+        assertEquals("vacuum", customToDoList.get(3).getToDo());
+        assertEquals(false, customToDoList.get(2).isUrgent());
+    }
+
+
+
 }

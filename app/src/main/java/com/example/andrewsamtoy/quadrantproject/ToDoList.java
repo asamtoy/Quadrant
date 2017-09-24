@@ -13,7 +13,7 @@ public class ToDoList implements Serializable {
     public ToDoList(){
         toDoList = new ArrayList<ToDo>();
     }
-    
+
     public void add(ToDo toDo){
         toDoList.add(toDo);
     }
@@ -33,6 +33,10 @@ public class ToDoList implements Serializable {
 
     public ToDo get(int index){
         return this.toDoList.get(index);
+    }
+
+    public ToDoList(ArrayList<ToDo> customToDoList) {
+        toDoList = new ArrayList<>(customToDoList);
     }
 
 //    public ToDo modify(){

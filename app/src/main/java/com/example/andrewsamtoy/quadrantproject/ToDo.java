@@ -5,11 +5,13 @@ import android.os.Bundle;
 
 public class ToDo extends AppCompatActivity {
 
+    private int rank;
     private String toDo;
     private boolean urgent;
     private boolean important;
 
-    public ToDo(String toDo, boolean important, boolean urgent){
+    public ToDo(int rank, String toDo, boolean important, boolean urgent){
+        this.rank = rank;
         this.toDo = toDo;
         this.important = important;
         this.urgent = urgent;
@@ -25,6 +27,10 @@ public class ToDo extends AppCompatActivity {
 
     public String getToDo() {
         return toDo;
+    }
+
+    public int getRanking(){
+        return rank;
     }
 
     @Override

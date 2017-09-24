@@ -14,25 +14,28 @@ import java.util.ArrayList;
  */
 
 public class ToDosAdapter extends ArrayAdapter<ToDo> {
-    public ToDosAdapter(Context context, ArrayList<ToDo> toDo){
-        super(context, 0, toDo);
 
+    public ToDosAdapter(Context context, ArrayList<ToDo> toDos){
+        super(context, 0, toDos);
     }
 
     @Override
     public View getView(int rank, View listItemView, ViewGroup parent){
+
         if (listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.content_main, parent, false);
 
         }
-        ToDo toDo = getItem(toDo);
 
-        TextView toDo = (TextView) listItemView.findViewById(R.id.toDo);
-        rank.setText(toDo.getRanking().toString());
+        ToDo toDo = getItem(rank);
+
+//        TextView ranking = (TextView) listItemView.findViewById(R.id.ranking);
+//        ranking.setText(toDo.getRanking().toString());
+//
         TextView title = (TextView) listItemView.findViewById(R.id.title);
-        title.setText(currentToDo.getTitle().toString());
+        title.setText(toDo.getTitle().toString());
 
-        listItemView.setTag(currentToDo);
+        listItemView.setTag(toDo);
 
         return listItemView;
     }

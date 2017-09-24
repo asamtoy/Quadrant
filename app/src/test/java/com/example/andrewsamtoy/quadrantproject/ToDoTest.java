@@ -14,7 +14,7 @@ public class ToDoTest {
 
     @Before
     public void before(){
-        toDo = new ToDo("Drink water", false, false);
+        toDo = new ToDo(1, "Drink water", false, false);
     }
 
 

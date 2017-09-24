@@ -29,7 +29,7 @@ public class ToDo extends AppCompatActivity {
         return toDo;
     }
 
-    public int getRanking(){
+    public int getRank(){
         return rank;
     }
 

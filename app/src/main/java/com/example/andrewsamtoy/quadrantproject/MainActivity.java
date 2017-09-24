@@ -20,17 +20,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SampleToDoList toDoList = new SampleToDoList();
-            ArrayList<ToDo> list = toDoList.getList();
+        SampleToDoList sampleToDoList = new SampleToDoList();
+            ArrayList<ToDo> list = sampleToDoList.getList();
 
             ToDosAdapter toDosAdapter = new ToDosAdapter(this, list);
 
-            ListView listView = (ListView) findViewById(R.id.toDoList);
+        ListView listView = (ListView) findViewById(R.id.list);
             listView.setAdapter(toDosAdapter);
-
         }
 
-        public void getToDo(View toDo){
+        public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
             Log.d("To Do: " , toDo.getToDo());
 

@@ -11,6 +11,10 @@
 //    public Rank(int rank){
 //        this.rank = rank;
 //    }
+////  Idea: re-create arraylist in new arraylist so that the most important/urgent goes to the top,
+////    then descending by number.  Group by ranking.
+////    ALTERNATELY create new arraylists for each ranking, which display on a new page?
+//
 //
 //    public void setRank(){
 //        rank = 0;

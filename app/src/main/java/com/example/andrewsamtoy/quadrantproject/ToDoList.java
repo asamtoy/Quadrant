@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 
 public class ToDoList implements Serializable {
+
     private ArrayList<ToDo> toDoList;
 
     public ToDoList(){

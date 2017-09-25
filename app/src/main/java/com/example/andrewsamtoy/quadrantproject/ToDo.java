@@ -7,12 +7,21 @@ public class ToDo extends AppCompatActivity {
 
     private int rank;
     private String toDo;
+    private String details;
     private boolean urgent;
     private boolean important;
 
+    public ToDo(int rank, String toDo, String details, boolean important, boolean urgent){
+        this.rank = rank;
+        this.toDo = toDo;
+        this.details = details;
+        this.important = important;
+        this.urgent = urgent;
+    }
     public ToDo(int rank, String toDo, boolean important, boolean urgent){
         this.rank = rank;
         this.toDo = toDo;
+        this.details = "No Details";
         this.important = important;
         this.urgent = urgent;
     }

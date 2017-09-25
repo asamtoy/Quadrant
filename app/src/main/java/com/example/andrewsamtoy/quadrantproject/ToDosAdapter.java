@@ -23,17 +23,16 @@ public class ToDosAdapter extends ArrayAdapter<ToDo> {
     public View getView(int rank, View listItemView, ViewGroup parent){
 
         if (listItemView == null){
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.content_main, parent, false);
-
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_to_do, parent, false);
         }
 
         ToDo toDo = getItem(rank);
 
-        TextView ranking = (TextView) listItemView.findViewById(R.id.ranking);
-        ranking.setText(toDo.getRank());
+        TextView ranking = listItemView.findViewById(R.id.ranking);
+        ranking.setText(String.valueOf(toDo.getRank()));
 
-        TextView title = (TextView) listItemView.findViewById(R.id.title);
-        title.setText(toDo.getTitle().toString());
+        TextView title = listItemView.findViewById(R.id.ToDoDescription);
+        title.setText(toDo.getToDo().toString());
 
         listItemView.setTag(toDo);
 

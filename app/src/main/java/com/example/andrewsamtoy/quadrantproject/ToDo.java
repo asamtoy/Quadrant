@@ -10,20 +10,23 @@ public class ToDo extends AppCompatActivity {
     private String details;
     private boolean urgent;
     private boolean important;
+    private boolean complete;
 
-    public ToDo(int rank, String toDo, String details, boolean important, boolean urgent){
+    public ToDo(int rank, String toDo, String details, boolean important, boolean urgent, boolean complete){
         this.rank = rank;
         this.toDo = toDo;
         this.details = details;
         this.important = important;
         this.urgent = urgent;
+        this.complete = complete;
     }
-    public ToDo(int rank, String toDo, boolean important, boolean urgent){
+    public ToDo(int rank, String toDo, boolean important, boolean urgent, boolean complete){
         this.rank = rank;
         this.toDo = toDo;
         this.details = "No Details";
         this.important = important;
         this.urgent = urgent;
+        this.complete = complete;
     }
 
     public boolean isUrgent() {
@@ -34,6 +37,8 @@ public class ToDo extends AppCompatActivity {
         return important;
     }
 
+    public boolean isComplete(){ return complete; }
+
     public String getToDo() {
         return toDo;
     }
@@ -41,6 +46,20 @@ public class ToDo extends AppCompatActivity {
     public int getRank(){
         return rank;
     }
+
+//    public int calculateImportance(){
+//        if (this.isImportant()) {
+//            this.rank = this.rank + 2;
+//        }
+//        return this.rank;
+//    }
+//
+//    public int calculateUrgency(){
+//        if (this.isUrgent()) {
+//            this.rank = this.rank + 1;
+//        }
+//        return this.rank;
+//    }
 
     public String importance() {
         if (this.isImportant()) {
@@ -52,6 +71,15 @@ public class ToDo extends AppCompatActivity {
     public String urgency() {
         if (this.isUrgent()) {
             return "URGENT";
+        }
+        return "";
+    }
+
+    public String completed(){
+        if (this.isComplete()){
+            this.urgent = false;
+            this.important = false;
+            return "COMPLETE";
         }
         return "";
     }

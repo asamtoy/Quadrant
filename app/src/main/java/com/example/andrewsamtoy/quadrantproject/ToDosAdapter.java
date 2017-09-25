@@ -40,6 +40,9 @@ public class ToDosAdapter extends ArrayAdapter<ToDo> {
         TextView urgency = listItemView.findViewById(R.id.textUrgency);
         urgency.setText(toDo.urgency().toString());
 
+        TextView complete = listItemView.findViewById(R.id.textComplete);
+        complete.setText(toDo.completed().toString());
+
         listItemView.setTag(toDo);
 
         return listItemView;

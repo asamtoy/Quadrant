@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context="com.example.andrewsamtoy.quadrantproject.AddToDoActivity">
 
+    <EditText
+        android:id="@+id/toDoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter To Do"
+        android:inputType="text|textPersonName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/toDoDetails"
+        android:layout_width="351dp"
+        android:layout_height="171dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter Details"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/toggleImportant"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toDoTitle"
+        app:layout_constraintVertical_bias="0.503" />
+
+    <ToggleButton
+        android:id="@+id/toggleImportant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="133dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:text="ToggleButton"
+        android:textOff="Important"
+        android:textOn="Important"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/toggleUrgent" />
+
+    <ToggleButton
+        android:id="@+id/toggleUrgent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="39dp"
+        android:text="ToggleButton"
+        android:textOff="Urgent"
+        android:textOn="URGENT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toDoDetails"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <Button
+        android:id="@+id/saveToList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save To List"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/toDoDetails"
+        android:layout_marginRight="24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintVertical_bias="0.786" />
+
 </android.support.constraint.ConstraintLayout>

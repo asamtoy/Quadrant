@@ -1,5 +1,6 @@
 package com.example.andrewsamtoy.quadrantproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,9 +30,16 @@ public class MainActivity extends AppCompatActivity {
             listView.setAdapter(ToDosAdapter);
         }
 
+//        CHECK THIS
         public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
             Log.d("To Do: " , toDo.getToDo());
+
+            Intent intent = new Intent(this, MasterToDoListActivity.class);
+
+            intent.putExtra("toDoToAdd", toDo));
+
+            startActivity(intent);
 
     }
 

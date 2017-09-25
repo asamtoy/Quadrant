@@ -8,13 +8,14 @@
 
     <TextView
         android:id="@+id/ToDoDescription"
-        android:layout_width="284dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="149dp"
+        android:layout_height="68dp"
+        android:layout_marginRight="126dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="24dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textSize="20sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ranking"
@@ -26,9 +27,34 @@
         android:textSize="36sp"
         app:layout_constraintRight_toLeftOf="@+id/ToDoDescription"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="12dp"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintHorizontal_bias="0.504" />
+
+    <TextView
+        android:id="@+id/textImportance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@android:color/holo_blue_light"
+        app:layout_constraintLeft_toRightOf="@+id/ToDoDescription"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textUrgency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintLeft_toRightOf="@+id/ToDoDescription"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textImportance" />
 
 </android.support.constraint.ConstraintLayout>

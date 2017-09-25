@@ -42,6 +42,20 @@ public class ToDo extends AppCompatActivity {
         return rank;
     }
 
+    public String importance() {
+        if (this.isImportant()) {
+            return "IMPORTANT";
+        }
+        return "";
+    }
+
+    public String urgency() {
+        if (this.isUrgent()) {
+            return "URGENT";
+        }
+        return "";
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

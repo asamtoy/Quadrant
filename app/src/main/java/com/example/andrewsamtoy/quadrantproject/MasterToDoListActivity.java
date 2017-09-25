@@ -42,7 +42,7 @@ public class MasterToDoListActivity extends AppCompatActivity {
         for (ToDo currentToDo : masterList) {
             toDoList += currentToDo.getToDo() + " - " + currentToDo.isUrgent() + "\n";
         }
-        toDoList.setText(todoList);
+        masterListList.setText(toDoList);
 
 //        Save the ToDos to Shared Preferences
         sharedPrefs.edit()

@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
 //        CHECK THIS
         public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
-            Log.d("To Do: " , toDo.getToDo());
+            Log.d("To Do " , toDo.getToDo());
 
             Intent intent = new Intent(this, MasterToDoListActivity.class);
 
-            intent.putExtra("toDoToAdd", toDo));
+            intent.putExtra("toDoToAdd", toDo);
 
             startActivity(intent);
 

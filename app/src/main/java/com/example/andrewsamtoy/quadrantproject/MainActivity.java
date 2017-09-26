@@ -12,8 +12,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,40 +27,64 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ToDoList toDoList = new ToDoList();
-        ArrayList<ToDo> list = toDoList.getToDoList();
+        SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
+        String toDoListString = sharedPrefs.getString("ToDoList", "");
+        Log.d("To Lo List String", toDoListString);
+//
+        Gson gson = new Gson();
 
-        ToDosAdapter ToDosAdapter = new ToDosAdapter(this, list);
+        TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
+        ArrayList<ToDo> myToDos = gson.fromJson("", toDoArrayList.getType());
 
+        if( myToDos == null ){
+            ToDoList toDoList = new ToDoList();//creating from scratch
+            myToDos = toDoList.getToDoList();
+        }
+
+        Log.d("My To Dos", String.valueOf(myToDos.size()));
+
+        ToDosAdapter ToDosAdapter = new ToDosAdapter(this, myToDos);
         ListView listView = (ListView) findViewById(R.id.toDoList);
         listView.setAdapter(ToDosAdapter);
 
-        SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
-        String toDoListString = sharedPrefs.getString("To Do List", new ArrayList<ToDo>().toString());
-        Log.d("To Lo List String", toDoListString);
 
-        Gson gson = new Gson();
-        TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
-        ArrayList<ToDo> myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
-        Log.d("My To Dos", String.valueOf(myToDos.size()));
 
-        ToDo newToDo = (ToDo) getIntent().getSerializableExtra("To Do");
-        myToDos.add(newToDo);
-        Log.d("My To Dos", myToDos.toString());
+//        ToDo newToDo = (ToDo) getIntent().getSerializableExtra("To Do");
+//        myToDos.add(newToDo);
+//        Log.d("My To Dos", myToDos.toString());
 
-        TextView newList = (TextView)findViewById(R.id.toDoList);
-        String toDoListString = "";
+//        TextView newList = (TextView)findViewById(R.id.toDoList);
+//        String toDoListString = "";
 
-        for (ToDo t : myToDos){
-            toDoListString += t.getToDoTitle() + "\n";
-        }
-        
-        list.setText(toDoListString);
+//        for (ToDo t : myToDos){
+//            toDoListString += t.getToDoTitle() + "\n";
+//        }
+//
+//        list.setText(toDoListString);
+//
+//        SharedPreferences.Editor editor = sharedPrefs.edit();
+//
+//        editor.putString("To Do Added", gson.toJson(myToDos));
+//        editor.apply();
+//
+//        Toast.makeText(this, "You've added a To Do", Toast.LENGTH_LONG).show();
 
+        FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.addButton);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, AddToDoActivity.class));
+            }
+
+        });
     }
+
+
 
     public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
@@ -72,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
 }
-
-
+    public void onAddButtonClick(View view){
+        Log.d("Button clicked!", "Button click");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

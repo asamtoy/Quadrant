@@ -3,26 +3,28 @@ package com.example.andrewsamtoy.quadrantproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ToDo extends AppCompatActivity {
+import java.io.Serializable;
+
+public class ToDo extends AppCompatActivity implements Serializable {
 
     private int rank;
-    private String toDo;
+    private String toDoTitle;
     private String details;
     private boolean urgent;
     private boolean important;
     private boolean complete;
 
-    public ToDo(int rank, String toDo, String details, boolean important, boolean urgent, boolean complete){
+    public ToDo(int rank, String toDoTitle, String details, boolean important, boolean urgent, boolean complete){
         this.rank = rank;
-        this.toDo = toDo;
+        this.toDoTitle = toDoTitle;
         this.details = details;
         this.important = important;
         this.urgent = urgent;
         this.complete = complete;
     }
-    public ToDo(int rank, String toDo, boolean important, boolean urgent, boolean complete){
+    public ToDo(int rank, String toDoTitle, boolean important, boolean urgent, boolean complete){
         this.rank = rank;
-        this.toDo = toDo;
+        this.toDoTitle = toDoTitle;
         this.details = "No Details";
         this.important = important;
         this.urgent = urgent;
@@ -39,8 +41,8 @@ public class ToDo extends AppCompatActivity {
 
     public boolean isComplete(){ return complete; }
 
-    public String getToDo() {
-        return toDo;
+    public String getToDoTitle() {
+        return toDoTitle;
     }
 
     public int getRank(){

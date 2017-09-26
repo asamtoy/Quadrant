@@ -20,10 +20,13 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="61dp"
-        android:layout_height="57dp"
+        android:layout_width="117dp"
+        android:layout_height="98dp"
+        android:layout_gravity="bottom|left"
         android:clickable="true"
         app:fabSize="mini"
+        app:layout_anchor="@+id/toDoList"
+        app:layout_anchorGravity="top|left"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </android.support.design.widget.CoordinatorLayout>

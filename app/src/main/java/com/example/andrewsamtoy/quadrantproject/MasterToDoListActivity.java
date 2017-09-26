@@ -10,6 +10,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
 public class MasterToDoListActivity extends AppCompatActivity {
@@ -31,25 +34,24 @@ public class MasterToDoListActivity extends AppCompatActivity {
 
 //        Convert JSON Array into an ArrayList of ToDos
         Gson gson = new Gson();
-        TypeToken<ArrayList<ToDo>> toDoArrayTypeToken = new TypeToken<ArrayList<ToDo>>(){};
-        ArrayList<ToDo> masterList = gson.fromJson(masterListJson, toDoArrayTypeToken.getType());
-        masterList.add(toDo);
-        Log.d("Updated List", masterList.toString());
+        TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
+        ArrayList<ToDo> myList = gson.fromJson(masterListJson, toDoArrayList.getType());
+        Log.d("Updated List", myList.toString());
 
-//        Update the view
-        TextView masterListList = (TextView) findViewById(R.id.toDoList);
-        String toDoList = "";
-        for (ToDo currentToDo : masterList) {
-            toDoList += currentToDo.getToDo() + " - " + currentToDo.isUrgent() + "\n";
-        }
-        masterListList.setText(toDoList);
-
-//        Save the ToDos to Shared Preferences
-        sharedPrefs.edit()
-                .putString("Master List", gson.toJson(masterList))
-                .apply();
-
-        Toast.makeText(this, "Added " + toDo.getToDo(), Toast.LENGTH_LONG).show();
-
+////        Update the view
+//        TextView masterListList = (TextView) findViewById(R.id.toDoList);
+//        String toDoList = "";
+//        for (ToDo currentToDo : masterList) {
+//            toDoList += currentToDo.getToDoTitle() + " - " + currentToDo.isUrgent() + "\n";
+//        }
+//        masterListList.setText(toDoList);
+//
+////        Save the ToDos to Shared Preferences
+//        sharedPrefs.edit()
+//                .putString("Master List", gson.toJson(masterList))
+//                .apply();
+//
+//        Toast.makeText(this, "Added " + toDo.getToDoTitle(), Toast.LENGTH_LONG).show();
+//
     }
 }

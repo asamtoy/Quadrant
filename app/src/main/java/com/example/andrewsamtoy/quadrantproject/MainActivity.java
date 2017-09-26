@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
 //        CHECK THIS
         public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
-            Log.d("To Do " , toDo.getToDo());
+            Log.d("To Do " , toDo.getToDoTitle());
 
             Intent intent = new Intent(this, MasterToDoListActivity.class);
 
-            intent.putExtra("toDoToAdd", toDo);
+            intent.putExtra("toDo", toDo);
 
             startActivity(intent);
 

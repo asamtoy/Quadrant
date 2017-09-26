@@ -28,9 +28,6 @@ public class ToDosAdapter extends ArrayAdapter<ToDo> {
 
         ToDo toDo = getItem(rank);
 
-        TextView ranking = listItemView.findViewById(R.id.ranking);
-        ranking.setText(String.valueOf(toDo.getRank()));
-
         TextView title = listItemView.findViewById(R.id.ToDoDescription);
         title.setText(toDo.getToDoTitle().toString());
 

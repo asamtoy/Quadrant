@@ -23,9 +23,9 @@ public class ToDoListTest {
     @Before
     public void before(){
         toDoList = new ToDoList();
-        toDo1 = new ToDo(1, "Planning", true, true);
-        toDo2 = new ToDo(2, "Make pizza", false, false);
-        toDo3 = new ToDo(3, "Set pomodoro timer", false, true);
+        toDo1 = new ToDo("Planning", true, true, false);
+        toDo2 = new ToDo("Make pizza", false, false, false);
+        toDo3 = new ToDo("Set pomodoro timer", false, true, false);
         toDoList.add(toDo1);
         toDoList.add(toDo2);
     }
@@ -37,8 +37,8 @@ public class ToDoListTest {
 
     @Test
     public void testGetByIndexTestToDo(){
-        assertEquals("Planning", toDoList.get(0).getToDo());
-        assertEquals("Make pizza", toDoList.get(1).getToDo());
+        assertEquals("Planning", toDoList.get(0).getToDoTitle());
+        assertEquals("Make pizza", toDoList.get(1).getToDoTitle());
 
     }
     @Test
@@ -60,19 +60,13 @@ public class ToDoListTest {
     }
 
     @Test
-    public void testGetRank(){
-        assertEquals(1, toDoList.get(0).getRank());
-        assertEquals(2, toDoList.get(1).getRank());
-    }
-
-    @Test
     public void canCreateCustomToDoList() {
         ArrayList<ToDo> customToDoList = new ArrayList<>();
-        toDo1 = new ToDo(1, "PLANNING", true, true);
-        toDo2 = new ToDo(2, "Hydrate", true, true);
-        toDo3 = new ToDo(3, "Cook soup", true, false);
-        toDo4 = new ToDo(4, "vacuum", true, false);
-        toDo5 = new ToDo(5, "Feed sourdough starter", true, false);
+        toDo1 = new ToDo("PLANNING", true, true, false);
+        toDo2 = new ToDo("Hydrate", true, true, false);
+        toDo3 = new ToDo("Cook soup", true, false, false);
+        toDo4 = new ToDo("vacuum", true, false, false);
+        toDo5 = new ToDo("Feed sourdough starter", true, false, false);
 
         customToDoList.add(toDo1);
         customToDoList.add(toDo2);
@@ -82,9 +76,9 @@ public class ToDoListTest {
         ToDoList toDoListWithNewAnswers = new ToDoList(customToDoList);
 
         assertEquals(5, toDoListWithNewAnswers.getLength());
-        assertEquals("Cook soup", toDo3.getToDo());
-        assertEquals("vacuum", toDo4.getToDo());
-        assertEquals("vacuum", customToDoList.get(3).getToDo());
+        assertEquals("Cook soup", toDo3.getToDoTitle());
+        assertEquals("vacuum", toDo4.getToDoTitle());
+        assertEquals("vacuum", customToDoList.get(3).getToDoTitle());
         assertEquals(false, customToDoList.get(2).isUrgent());
     }
 

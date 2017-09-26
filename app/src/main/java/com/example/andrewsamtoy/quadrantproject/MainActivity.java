@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -34,6 +35,29 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.toDoList);
         listView.setAdapter(ToDosAdapter);
+
+        SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
+        String toDoListString = sharedPrefs.getString("To Do List", new ArrayList<ToDo>().toString());
+        Log.d("To Lo List String", toDoListString);
+
+        Gson gson = new Gson();
+        TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
+        ArrayList<ToDo> myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
+        Log.d("My To Dos", String.valueOf(myToDos.size()));
+
+        ToDo newToDo = (ToDo) getIntent().getSerializableExtra("To Do");
+        myToDos.add(newToDo);
+        Log.d("My To Dos", myToDos.toString());
+
+        TextView newList = (TextView)findViewById(R.id.toDoList);
+        String toDoListString = "";
+
+        for (ToDo t : myToDos){
+            toDoListString += t.getToDoTitle() + "\n";
+        }
+        
+        list.setText(toDoListString);
+
     }
 
     public void getToDo(View listItem){
@@ -48,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
 }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

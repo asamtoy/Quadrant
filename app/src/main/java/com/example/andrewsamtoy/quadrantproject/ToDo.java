@@ -7,23 +7,20 @@ import java.io.Serializable;
 
 public class ToDo extends AppCompatActivity implements Serializable {
 
-    private int rank;
     private String toDoTitle;
     private String details;
     private boolean urgent;
     private boolean important;
     private boolean complete;
 
-    public ToDo(int rank, String toDoTitle, String details, boolean important, boolean urgent, boolean complete){
-        this.rank = rank;
+    public ToDo(String toDoTitle, String details, boolean important, boolean urgent, boolean complete){
         this.toDoTitle = toDoTitle;
         this.details = details;
         this.important = important;
         this.urgent = urgent;
         this.complete = complete;
     }
-    public ToDo(int rank, String toDoTitle, boolean important, boolean urgent, boolean complete){
-        this.rank = rank;
+    public ToDo(String toDoTitle, boolean important, boolean urgent, boolean complete){
         this.toDoTitle = toDoTitle;
         this.details = "No Details";
         this.important = important;
@@ -45,9 +42,6 @@ public class ToDo extends AppCompatActivity implements Serializable {
         return toDoTitle;
     }
 
-    public int getRank(){
-        return rank;
-    }
 
 //    public int calculateImportance(){
 //        if (this.isImportant()) {

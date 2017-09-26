@@ -40,6 +40,11 @@ public class ToDoList implements Serializable {
         toDoList = new ArrayList<>(customToDoList);
     }
 
+    public ArrayList<ToDo> getToDoList() {
+        return toDoList;
+    }
+
+
 //    public ToDo modify(){
 //        toDoList.get(int index);
 //        toDoList.set(int index, toDo);

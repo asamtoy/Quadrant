@@ -32,19 +32,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
-        String toDoListString = sharedPrefs.getString("ToDoList", new ArrayList<ToDo>().toString());
+        String toDoListString = sharedPrefs.getString("ToDoList", "{}");
         Gson gson = new Gson();
-        TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
-        ArrayList<ToDo> myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
+        TypeToken<ToDoList> toDoArrayList = new TypeToken<ToDoList>(){};
+        ToDoList myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
 
-        if( myToDos == null ){
-            ToDoList toDoList = new ToDoList();//creating from scratch
-            myToDos = toDoList.getToDoList();
-        }
+//        if( myToDos == null ){
+//            ToDoList toDoList = new ToDoList();//creating from scratch
+//            myToDos = toDoList.getToDoList();
+//        }
 
-        Log.d("My To Dos", String.valueOf(myToDos.size()));
+        Log.d("My To Dos", String.valueOf(myToDos.getToDoList().size()));
 
-        ToDosAdapter ToDosAdapter = new ToDosAdapter(this, myToDos);
+        ToDosAdapter ToDosAdapter = new ToDosAdapter(this, myToDos.getToDoList());
         ListView listView = (ListView) findViewById(R.id.toDoList);
         listView.setAdapter(ToDosAdapter);
 

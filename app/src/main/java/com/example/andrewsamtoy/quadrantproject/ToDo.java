@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import java.io.Serializable;
 
-public class ToDo extends AppCompatActivity implements Serializable {
+public class ToDo implements Serializable {
 
     private String toDoTitle;
     private String details;
@@ -65,15 +65,9 @@ public class ToDo extends AppCompatActivity implements Serializable {
         return "";
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_do);
-    }
-
-    public Object getToDoDetails() {
-        return details;
-    }
+//    public Object getToDoDetails() {
+//        return details;
+//    }
 
     //    public int calculateImportance(){
 //        if (this.isImportant()) {

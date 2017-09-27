@@ -59,22 +59,23 @@ public class AddToDoActivity extends AppCompatActivity {
         Log.d("Is this urgent? ", isUrgent.toString());
 
         SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
-//        String toDoListString = sharedPrefs.getString("ToDoList", new ArrayList<ToDo>().toString());
-        String toDoListString = sharedPrefs.getString("ToDoList", "");
+        String toDoListString = sharedPrefs.getString("ToDoList", "{}");
 
         Gson gson = new Gson();
-        TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
-        ArrayList<ToDo> myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
-
-        if (myToDos == null){
-            myToDos = new ArrayList<ToDo>();
-        }
+        TypeToken<ToDoList> toDoArrayList = new TypeToken<ToDoList>(){};
+        ToDoList myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
 
         ToDo newToDo = new ToDo(title, details, isImportant, isUrgent, false);
         myToDos.add(newToDo);
 
-        Log.d("let me see my To Dos, ", "I need this log so we can stop on the line before in debug mode");
-        Log.d("Length of To Dos: ", String.valueOf(myToDos.size()));
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putString("ToDoList", gson.toJson(myToDos));
+        editor.apply();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+
     }
 
         //add our new todo to the mytodos

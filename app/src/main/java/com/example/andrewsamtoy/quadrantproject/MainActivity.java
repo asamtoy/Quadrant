@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
         String toDoListString = sharedPrefs.getString("ToDoList", "");
-        Log.d("To Lo List String", toDoListString);
-//
         Gson gson = new Gson();
-
         TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
         ArrayList<ToDo> myToDos = gson.fromJson("", toDoArrayList.getType());
 

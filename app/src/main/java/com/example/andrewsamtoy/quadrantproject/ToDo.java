@@ -42,21 +42,6 @@ public class ToDo extends AppCompatActivity implements Serializable {
         return toDoTitle;
     }
 
-
-//    public int calculateImportance(){
-//        if (this.isImportant()) {
-//            this.rank = this.rank + 2;
-//        }
-//        return this.rank;
-//    }
-//
-//    public int calculateUrgency(){
-//        if (this.isUrgent()) {
-//            this.rank = this.rank + 1;
-//        }
-//        return this.rank;
-//    }
-
     public String importance() {
         if (this.isImportant()) {
             return "IMPORTANT";
@@ -85,4 +70,23 @@ public class ToDo extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
     }
+
+    public Object getToDoDetails() {
+        return details;
+    }
+
+    //    public int calculateImportance(){
+//        if (this.isImportant()) {
+//            this.rank = this.rank + 2;
+//        }
+//        return this.rank;
+//    }
+//
+//    public int calculateUrgency(){
+//        if (this.isUrgent()) {
+//            this.rank = this.rank + 1;
+//        }
+//        return this.rank;
+//    }
+
 }

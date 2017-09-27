@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
-        String toDoListString = sharedPrefs.getString("ToDoList", "");
+        String toDoListString = sharedPrefs.getString("ToDoList", new ArrayList<ToDo>().toString());
         Gson gson = new Gson();
         TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
-        ArrayList<ToDo> myToDos = gson.fromJson("", toDoArrayList.getType());
+        ArrayList<ToDo> myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
 
         if( myToDos == null ){
             ToDoList toDoList = new ToDoList();//creating from scratch

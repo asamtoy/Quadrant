@@ -58,63 +58,26 @@ public class AddToDoActivity extends AppCompatActivity {
         Log.d("Is this important? ", isImportant.toString());
         Log.d("Is this urgent? ", isUrgent.toString());
 
-
-        //Get from shared preferences the list of todos
         SharedPreferences sharedPrefs = getSharedPreferences(getString(R.string.TODOLIST), Context.MODE_PRIVATE);
+//        String toDoListString = sharedPrefs.getString("ToDoList", new ArrayList<ToDo>().toString());
         String toDoListString = sharedPrefs.getString("ToDoList", "");
+
         Gson gson = new Gson();
         TypeToken<ArrayList<ToDo>> toDoArrayList = new TypeToken<ArrayList<ToDo>>(){};
-        ArrayList<ToDo> myToDos = gson.fromJson("", toDoArrayList.getType());
+        ArrayList<ToDo> myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
 
-        if( myToDos == null ){
-            ToDoList toDoList = new ToDoList();//creating from scratch
-            myToDos = toDoList.getToDoList();
+        if (myToDos == null){
+            myToDos = new ArrayList<ToDo>();
         }
+
+        ToDo newToDo = new ToDo(title, details, isImportant, isUrgent, false);
+        myToDos.add(newToDo);
+
+        Log.d("let me see my To Dos, ", "I need this log so we can stop on the line before in debug mode");
+        Log.d("Length of To Dos: ", String.valueOf(myToDos.size()));
+    }
 
         //add our new todo to the mytodos
-            //make a new to do
-        TextView list = (TextView)findViewById(R.id.toDoTitleInput);
-        String toDoString = "";
-
-        for(ToDo t : myToDos){
-            toDoString += t.getTitle() + "\n";
-        }
-
-        list.setText(toDoString);
-
-//        Put title in a new ToDo
-//        Add that ToDo to the array that displays in the main page
-
-//        TextView list = (TextView)findViewById(R.id.toDoTitleInput);
-
-//
-//        String titleInput = "";
-//
-//        for(ToDo t : myToDos){
-//            ToDo newToDo = new ToDo;
-//
-//            newToDo.add(myToDos);
-//            myToDos += newToDo;
-//
-//        }
-//
-//        toDoString.
-
-//        TextView list = (TextView)findViewById(R.id.favourites_list);
-//        String movieString = "";
-//
-//        for(Movie m : myFavourites){
-//            movieString += m.getTitle() + " " + m.getYear() + "\n";
-//        }
-//
-//        list.setText(movieString);
-
-
-
-//        list.setText(movieString);
-//        SharedPreferences.Editor editor = sharedPrefs.edit();
-//        editor.putString(toDoTitleInput.getText().toString(), gson.toJson(myToDos));
-//        editor.apply();
 
         //add it to mytodos
 
@@ -126,12 +89,13 @@ public class AddToDoActivity extends AppCompatActivity {
 //        editor.apply();
 
         //start the main activity
-    }
+
 
 //    public void onTitleEntered (View EditText){
 //        String title = toDoTitleInput.getText().toString();
 //        Log.d("Title entered: ", title);
 //    }
+
 }
 
 

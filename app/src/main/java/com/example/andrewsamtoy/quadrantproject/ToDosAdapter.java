@@ -44,4 +44,5 @@ public class ToDosAdapter extends ArrayAdapter<ToDo> {
 
         return listItemView;
     }
+
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.gson.Gson;
@@ -74,7 +75,7 @@ public class AddToDoActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
+        Toast.makeText(this, "We've added to your Quadrant", Toast.LENGTH_LONG).show();
 
     }
 

@@ -42,6 +42,8 @@ public class ToDo implements Serializable {
         return toDoTitle;
     }
 
+    public String getToDoDetails(){ return details; }
+
     public String importance() {
         if (this.isImportant()) {
             return "IMPORTANT";

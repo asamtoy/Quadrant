@@ -85,16 +85,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
-
             Log.d("To Do " , toDo.getToDoTitle());
+            Log.d("Details: ", toDo.getToDoDetails());
+            Log.d("Urgent? ", String.valueOf(toDo.isUrgent()));
+            Log.d("Important? ", String.valueOf(toDo.isImportant()));
 
-            Intent intent = new Intent(this, AddToDoActivity.class);
-
+            Intent intent = new Intent(this, ViewToDoActivity.class);
             intent.putExtra("toDo", toDo);
-
             startActivity(intent);
+    }
 
-}
     public void onAddButtonClick(View view){
         Log.d("Button clicked!", "Button click");
     }
@@ -120,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 

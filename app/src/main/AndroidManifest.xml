@@ -16,13 +16,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"
-                    android:label="@string/title"
-                    />
+                <category
+                    android:name="android.intent.category.LAUNCHER"
+                    android:label="@string/title" />
             </intent-filter>
         </activity>
         <activity android:name=".AddToDoActivity" />
-
+        <activity android:name=".ViewToDoActivity"></activity>
     </application>
 
 </manifest>

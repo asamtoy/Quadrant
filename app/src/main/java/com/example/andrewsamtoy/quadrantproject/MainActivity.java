@@ -37,38 +37,11 @@ public class MainActivity extends AppCompatActivity {
         TypeToken<ToDoList> toDoArrayList = new TypeToken<ToDoList>(){};
         ToDoList myToDos = gson.fromJson(toDoListString, toDoArrayList.getType());
 
-//        if( myToDos == null ){
-//            ToDoList toDoList = new ToDoList();//creating from scratch
-//            myToDos = toDoList.getToDoList();
-//        }
-
         Log.d("My To Dos", String.valueOf(myToDos.getToDoList().size()));
 
         ToDosAdapter ToDosAdapter = new ToDosAdapter(this, myToDos.getToDoList());
         ListView listView = (ListView) findViewById(R.id.toDoList);
         listView.setAdapter(ToDosAdapter);
-
-
-
-//        ToDo newToDo = (ToDo) getIntent().getSerializableExtra("To Do");
-//        myToDos.add(newToDo);
-//        Log.d("My To Dos", myToDos.toString());
-
-//        TextView newList = (TextView)findViewById(R.id.toDoList);
-//        String toDoListString = "";
-
-//        for (ToDo t : myToDos){
-//            toDoListString += t.getToDoTitle() + "\n";
-//        }
-//
-//        list.setText(toDoListString);
-//
-//        SharedPreferences.Editor editor = sharedPrefs.edit();
-//
-//        editor.putString("To Do Added", gson.toJson(myToDos));
-//        editor.apply();
-//
-//        Toast.makeText(this, "You've added a To Do", Toast.LENGTH_LONG).show();
 
         FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.addButton);
 
@@ -81,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
     public void getToDo(View listItem){
             ToDo toDo = (ToDo) listItem.getTag();
             Log.d("To Do " , toDo.getToDoTitle());
@@ -91,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Important? ", String.valueOf(toDo.isImportant()));
 
             Intent intent = new Intent(this, ViewToDoActivity.class);
-            intent.putExtra("toDo", toDo);
+            Gson gson = new Gson();
+            String toDoString = gson.toJson(toDo);
+            intent.putExtra("toDo", toDoString);
             startActivity(intent);
     }
 

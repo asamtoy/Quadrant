@@ -44,15 +44,5 @@ public class ToDoList implements Serializable {
         return toDoList;
     }
 
-
-//    public ToDo modify(){
-//        toDoList.get(int index);
-//        toDoList.set(int index, toDo);
-
-//        Retrieve both string and rank
-//        Allow to
-//        Save
-//    }
-
 }
 

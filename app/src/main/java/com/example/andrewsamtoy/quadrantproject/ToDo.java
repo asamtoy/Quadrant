@@ -66,23 +66,4 @@ public class ToDo implements Serializable {
         }
         return "";
     }
-
-//    public Object getToDoDetails() {
-//        return details;
-//    }
-
-    //    public int calculateImportance(){
-//        if (this.isImportant()) {
-//            this.rank = this.rank + 2;
-//        }
-//        return this.rank;
-//    }
-//
-//    public int calculateUrgency(){
-//        if (this.isUrgent()) {
-//            this.rank = this.rank + 1;
-//        }
-//        return this.rank;
-//    }
-
 }

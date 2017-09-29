@@ -23,8 +23,7 @@ public class ViewToDoActivity extends AppCompatActivity {
         String toDoString = intent.getStringExtra("toDo");
         Gson gson = new Gson();
         ToDo toDo = gson.fromJson(toDoString, ToDo.class);
-//        Log.d("To Do Details", );
-        Log.d("IT WORKS", toDoString);
+        Log.d("CHECKING", toDoString);
 
         TextView textTitle = (TextView) findViewById(R.id.textTitle);
         TextView textDetails = (TextView) findViewById(R.id.textDetails);
